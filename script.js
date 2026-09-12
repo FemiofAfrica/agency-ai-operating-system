@@ -1,13 +1,8 @@
 const themeToggle = document.querySelector('.theme-toggle');
 const prefersLight = window.matchMedia('(prefers-color-scheme: light)');
 let savedTheme = null;
-try {
-  savedTheme = window.localStorage.getItem('agency-theme');
-} catch (error) {
-  savedTheme = null;
-}
+try { savedTheme = window.localStorage.getItem('agency-theme'); } catch (error) { savedTheme = null; }
 const initialTheme = savedTheme || (prefersLight.matches ? 'light' : 'dark');
-
 document.documentElement.dataset.theme = initialTheme;
 
 function updateThemeButton(theme) {
@@ -17,16 +12,11 @@ function updateThemeButton(theme) {
   themeToggle.querySelector('.theme-label').textContent = light ? 'Dark' : 'Light';
   themeToggle.querySelector('.theme-icon').textContent = light ? '◐' : '☼';
 }
-
 updateThemeButton(initialTheme);
 themeToggle.addEventListener('click', () => {
   const nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
   document.documentElement.dataset.theme = nextTheme;
-  try {
-    window.localStorage.setItem('agency-theme', nextTheme);
-  } catch (error) {
-    // Continue without persistence when storage is unavailable.
-  }
+  try { window.localStorage.setItem('agency-theme', nextTheme); } catch (error) { /* Storage is optional. */ }
   updateThemeButton(nextTheme);
 });
 
@@ -34,17 +24,14 @@ const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.topnav');
 menuToggle.addEventListener('click', () => {
   const open = nav.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', open);
+  menuToggle.setAttribute('aria-expanded', String(open));
+  menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
 });
-
 document.querySelectorAll('.topnav a').forEach(link => link.addEventListener('click', () => nav.classList.remove('open')));
 
 document.querySelectorAll('.system-tab').forEach(tab => {
   tab.addEventListener('click', () => {
-    document.querySelectorAll('.system-tab').forEach(item => {
-      item.classList.remove('active');
-      item.setAttribute('aria-selected', 'false');
-    });
+    document.querySelectorAll('.system-tab').forEach(item => { item.classList.remove('active'); item.setAttribute('aria-selected', 'false'); });
     document.querySelectorAll('.system-detail').forEach(detail => detail.classList.add('hidden'));
     tab.classList.add('active');
     tab.setAttribute('aria-selected', 'true');
@@ -65,22 +52,9 @@ document.querySelectorAll('.workflow-step').forEach(step => {
     step.closest('.system-detail').querySelector('.step-note').textContent = stepNotes[step.querySelector('span').textContent];
   });
 });
-
-document.querySelectorAll('.phase').forEach(phase => {
-  phase.addEventListener('click', () => {
-    document.querySelectorAll('.phase').forEach(item => item.classList.remove('active'));
-    phase.classList.add('active');
-  });
-});
-
-const metrics = {
-  draft: ['Hours to first draft', 'From brief received to a credible first creative direction.'],
-  research: ['Lead research time', 'Time from account list to useful, source-backed context.'],
-  handoff: ['On-time handoffs', 'Whether the next owner receives the right context at the right time.'],
-  retrieval: ['Knowledge retrieval time', 'Time for a team member to find the context needed to act.']
-};
 document.querySelectorAll('.metric').forEach(metric => {
   metric.addEventListener('click', () => {
+    const metrics = { draft: ['Hours to first draft', 'From brief received to a credible first creative direction.'], research: ['Lead research time', 'Time from account list to useful, source-backed context.'], handoff: ['On-time handoffs', 'Whether the next owner receives the right context at the right time.'], retrieval: ['Knowledge retrieval time', 'Time for a team member to find the context needed to act.'] };
     document.querySelectorAll('.metric').forEach(item => item.classList.remove('active'));
     metric.classList.add('active');
     document.querySelector('#metric-name').textContent = metrics[metric.dataset.metric][0];
@@ -88,10 +62,8 @@ document.querySelectorAll('.metric').forEach(metric => {
     document.querySelector('#metric-status').textContent = 'Not yet baselined';
   });
 });
-
 document.querySelector('#save-baseline').addEventListener('click', event => {
-  const baseline = document.querySelector('#baseline').value.trim();
-  const target = document.querySelector('#target').value.trim();
-  document.querySelector('#metric-status').textContent = baseline || target ? 'Ready for discovery review' : 'Add a baseline or target first';
-  event.currentTarget.textContent = baseline || target ? 'Discussion point saved' : 'Mark as a discussion point';
+  const hasInput = document.querySelector('#baseline').value.trim() || document.querySelector('#target').value.trim();
+  document.querySelector('#metric-status').textContent = hasInput ? 'Ready for discovery review' : 'Add a baseline or target first';
+  event.currentTarget.textContent = hasInput ? 'Discussion point saved' : 'Mark as a discussion point';
 });
