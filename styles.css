@@ -7,6 +7,12 @@
 :root[data-theme="light"] .topbar{background:rgba(241,238,228,.92)}
 :root[data-theme="light"] .hero-instrument,:root[data-theme="light"] .system-panel,:root[data-theme="light"] .worksheet{background:rgba(248,245,236,.92);box-shadow:0 20px 60px rgba(32,39,34,.1)}
 :root[data-theme="light"] .lede{color:var(--muted)}
+
+/* Keep the hero readable as a deliberate vertical sequence. */
+.hero{display:block}
+.hero-copy{max-width:760px;margin:0 auto}
+.hero-instrument{width:min(100%,1080px);margin:clamp(64px,8vw,112px) auto 0}
+
 :root[data-theme="light"] .meeting{background:var(--lime);color:#f8f5ec}
 :root[data-theme="light"] .meeting .eyebrow,:root[data-theme="light"] .prompts>span{color:rgba(248,245,236,.72)}
 :root[data-theme="light"] .meeting h2 em,:root[data-theme="light"] .meeting .button{color:#f8f5ec}
