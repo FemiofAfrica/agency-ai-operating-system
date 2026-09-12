@@ -22,7 +22,9 @@ Open `http://localhost:4173` from this directory.
 
 ## Deployment
 
-The site is published from the `main` branch through GitHub Pages.
+The site is published from the `main` branch through GitHub Pages:
+
+https://femiofafrica.github.io/agency-ai-operating-system/
 
 ## Files
 
