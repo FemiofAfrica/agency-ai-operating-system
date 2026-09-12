@@ -1,3 +1,35 @@
+const themeToggle = document.querySelector('.theme-toggle');
+const prefersLight = window.matchMedia('(prefers-color-scheme: light)');
+let savedTheme = null;
+try {
+  savedTheme = window.localStorage.getItem('agency-theme');
+} catch (error) {
+  savedTheme = null;
+}
+const initialTheme = savedTheme || (prefersLight.matches ? 'light' : 'dark');
+
+document.documentElement.dataset.theme = initialTheme;
+
+function updateThemeButton(theme) {
+  const light = theme === 'light';
+  themeToggle.setAttribute('aria-pressed', String(light));
+  themeToggle.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode');
+  themeToggle.querySelector('.theme-label').textContent = light ? 'Dark' : 'Light';
+  themeToggle.querySelector('.theme-icon').textContent = light ? '◐' : '☼';
+}
+
+updateThemeButton(initialTheme);
+themeToggle.addEventListener('click', () => {
+  const nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+  document.documentElement.dataset.theme = nextTheme;
+  try {
+    window.localStorage.setItem('agency-theme', nextTheme);
+  } catch (error) {
+    // Continue without persistence when storage is unavailable.
+  }
+  updateThemeButton(nextTheme);
+});
+
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.topnav');
 menuToggle.addEventListener('click', () => {

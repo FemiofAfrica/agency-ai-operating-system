@@ -18,7 +18,10 @@
       <a href="#systems">Systems</a><a href="#scorecard">Scorecard</a><a href="#path">Path</a>
       <a class="nav-cta" href="#meeting">Use in the meeting <span>↗</span></a>
     </nav>
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
+    <div class="topbar-actions">
+      <button class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☼</span><span class="theme-label">Light</span></button>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
+    </div>
   </header>
 
   <main id="top">
@@ -33,11 +36,14 @@
         <div class="instrument-head"><span>AGENCY OS / MAP</span><span>LIVE MODEL</span></div>
         <div class="orbit-map" aria-label="Diagram showing the agency AI operating system">
           <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
-          <div class="node node-core"><small>CORE</small><strong>Human<br>direction</strong></div>
+          <svg class="diagram-arrows" viewBox="0 0 100 100" role="img" aria-label="Directed loop from human direction and review through sales, the knowledge vault, and the creative pipeline back to review" preserveAspectRatio="none">
+            <defs><marker id="arrowhead" markerWidth="5" markerHeight="5" refX="4.2" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" /></marker></defs>
+            <path d="M22 28 L43 44" /><path d="M57 44 L78 28" /><path d="M78 35 L58 78" /><path d="M48 78 L48 57" />
+          </svg>
+          <div class="node node-core"><small>CORE / REVIEW</small><strong>Human<br>direction</strong></div>
           <div class="node node-sales"><small>01 / SIGNAL</small><strong>Sales +<br>prospecting</strong></div>
           <div class="node node-vault"><small>02 / MEMORY</small><strong>Knowledge<br>vault</strong></div>
           <div class="node node-creative"><small>03 / OUTPUT</small><strong>Creative<br>pipeline</strong></div>
-          <span class="connector c1"></span><span class="connector c2"></span><span class="connector c3"></span>
         </div>
         <div class="instrument-foot"><span>◉ REPEATABLE / REVIEWABLE</span><span>01-06</span></div>
       </div>
