@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="IRIRI Labs capability proposal for a human-directed agency AI operating system.">
+  <meta name="description" content="A strategic proposal from IRIRI Labs for a human-directed agency AI operating model.">
   <title>Agency OS | IRIRI Labs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,46 +11,98 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="noise" aria-hidden="true"></div>
-  <header class="topbar">
-    <a class="brand-lockup" href="#top" aria-label="IRIRI Labs home"><img src="assets/iriri-labs-logo.svg" alt="IRIRI Labs"><span>Agency OS<br><b>capability proposal</b></span></a>
-    <nav class="topnav" aria-label="Primary navigation"><a href="#architecture">Architecture</a><a href="#systems">Surfaces</a><a href="#scorecard">Scorecard</a><a href="#meeting" class="nav-cta">Use in the meeting <span>↗</span></a></nav>
-    <div class="topbar-actions"><button class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☼</span><span class="theme-label">Light</span></button><button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="IRIRI Labs, back to top">
+      <img src="assets/iriri-labs-logo.svg" alt="IRIRI Labs">
+      <span>Agency OS<br><small>Strategic proposal</small></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#model">The model</a>
+      <a href="#installed">What gets installed</a>
+      <a href="#path">The path</a>
+      <a href="#close" class="nav-link">Next conversation <span aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to light mode"><span aria-hidden="true">◐</span><span>Light</span></button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    </div>
   </header>
 
   <main id="top">
-    <section class="hero section-grid">
-      <div class="hero-copy"><p class="eyebrow"><span class="pulse"></span> IRIRI LABS / WORKING PROPOSAL</p><h1>Make the agency<br><em>more capable</em><br>with AI.</h1><p class="lede">Not prompt training. A human-directed capability system for finding signal, preserving context, making creative work, and moving it forward with confidence.</p><div class="hero-actions"><a href="#architecture" class="button button-lime">Read the architecture <span>↓</span></a><a href="#meeting" class="text-link">Jump to meeting view <span>↗</span></a></div></div>
-      <div class="hero-instrument" id="architecture">
-        <div class="instrument-head"><span>AGENCY OS / ARCHITECTURE</span><span>SHARED MEMORY MODEL</span></div>
-        <div class="architecture-map" aria-label="Architecture showing Human Direction as a control layer across three operating surfaces connected to the central Knowledge Vault">
-          <div class="control-band"><span class="control-label">CONTROL LAYER / HUMAN DIRECTION</span><div class="control-chips"><span>Intent</span><span>Context</span><span>Judgment</span><span>Review</span><span>Approval</span></div></div>
-          <svg class="connections" viewBox="0 0 100 100" role="img" aria-label="Two-way connections between the Knowledge Vault and three operating surfaces"><defs><marker id="arrow" markerWidth="5" markerHeight="5" refX="4.5" refY="2.5" orient="auto"><path d="M0 0L5 2.5L0 5Z"/></marker></defs><path d="M31 30C40 36 42 39 45 45"/><path d="M69 30C60 36 58 39 55 45"/><path d="M31 72C40 65 42 61 45 56"/><path d="M69 72C60 65 58 61 55 56"/><path class="control-line" d="M17 25C7 40 8 65 20 80"/><path class="control-line" d="M83 25C93 40 92 65 80 80"/></svg>
-          <article class="arch-node surface signal"><small>01 / OPERATING SURFACE</small><h3>Signal Desk</h3><p>Sales + Prospecting</p><span class="node-note">Find signal<br>qualify context</span></article>
-          <article class="arch-node vault"><small>CENTRAL LAYER / SHARED MEMORY</small><h3>Knowledge Vault</h3><p>Trusted context for the whole agency</p><span class="node-note">Contribute ↔ retrieve<br>owned • findable • separated</span></article>
-          <article class="arch-node surface creative"><small>02 / OPERATING SURFACE</small><h3>Creative Pipeline</h3><p>Brief to reviewed output</p><span class="node-note">Explore<br>direct • assemble</span></article>
-          <article class="arch-node surface operations"><small>03 / OPERATING SURFACE</small><h3>Agency Operations</h3><p>Principles into practice</p><span class="node-note">Standards<br>ownership • handoffs</span></article>
+    <section class="hero page-section">
+      <div class="hero-copy">
+        <p class="kicker"><span class="status-dot" aria-hidden="true"></span> IRIRI LABS / AGENCY CAPABILITY</p>
+        <h1>Make context<br>work <em>harder.</em></h1>
+        <p class="hero-lede">A human-directed AI operating model for agencies that want to preserve judgment, make context reusable, and move good work forward with confidence.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#model">See the model <span aria-hidden="true">↓</span></a>
+          <a class="quiet-link" href="#why">Why this matters <span aria-hidden="true">↘</span></a>
         </div>
-        <div class="instrument-foot"><span>↔ FEEDS INTO / DRAWS FROM</span><span>HUMANS DIRECT</span></div>
+      </div>
+      <aside class="hero-note" aria-label="Proposal framing">
+        <span class="note-label">THE PROPOSITION</span>
+        <p>AI should strengthen the agency's way of thinking, not flatten it into a tool workflow.</p>
+        <div class="note-rule"></div>
+        <small>IRIRI Labs, an expression of Ingenious Resources International Limited.</small>
+      </aside>
+    </section>
+
+    <section id="why" class="why page-section band-section">
+      <div class="section-number">01</div>
+      <div class="section-heading"><p class="kicker">WHY THIS MATTERS</p><h2>Fragmented context<br>creates <em>avoidable drag.</em></h2></div>
+      <div class="why-copy"><p>Agencies lose time and quality when research lives in one place, decisions in another, and the reason behind the work disappears at handoff.</p><p>The opportunity is not more output for its own sake. It is a better way to carry context from signal to decision to reviewed work.</p></div>
+      <ul class="friction-list" aria-label="Common agency friction">
+        <li><span>01</span><strong>Repeated research</strong><small>Useful signal is found again instead of being made reusable.</small></li>
+        <li><span>02</span><strong>Unclear handoffs</strong><small>The next owner receives an artefact, not always the why.</small></li>
+        <li><span>03</span><strong>Creative production drag</strong><small>Good ideas slow down between brief, direction, and review.</small></li>
+      </ul>
+    </section>
+
+    <section id="model" class="model page-section">
+      <div class="section-intro"><div class="section-number">02</div><div><p class="kicker">THE OPERATING MODEL</p><h2>One shared memory.<br><em>Three ways to work.</em></h2><p>Knowledge Vault is the coordination layer. It keeps context owned, findable, and separate, so every surface can contribute and retrieve what matters.</p></div></div>
+      <div class="model-figure">
+        <div class="direction-bar"><span class="direction-icon" aria-hidden="true">✦</span><div><strong>Human Direction</strong><small>Intent, context, judgment, review, approval</small></div><span class="direction-note">Control layer across every surface</span></div>
+        <div class="model-grid">
+          <article class="surface-card"><span class="surface-index">01</span><div><h3>Signal Desk</h3><p>Find and qualify signal for sales and prospecting.</p></div><span class="surface-arrow" aria-hidden="true">↗</span></article>
+          <article class="vault-card"><span class="vault-label">SHARED MEMORY + COORDINATION</span><h3>Knowledge Vault</h3><p>Briefs, decisions, sources, principles, and learnings that keep the agency's context available to the next decision.</p><div class="vault-triad"><span>Contribute</span><b>↔</b><span>Retrieve</span></div></article>
+          <article class="surface-card"><span class="surface-index">02</span><div><h3>Creative Pipeline</h3><p>Move from brief to explored, directed, assembled, reviewed output.</p></div><span class="surface-arrow" aria-hidden="true">↗</span></article>
+          <article class="surface-card operations-card"><span class="surface-index">03</span><div><h3>Agency Operations + Principles</h3><p>Make ownership, separation, consent, privacy, IP, and quality gates part of practice.</p></div><span class="surface-arrow" aria-hidden="true">↗</span></article>
+        </div>
+        <div class="legend" aria-label="Model legend"><span><i class="legend-swatch direction-swatch"></i>Human direction</span><span><i class="legend-swatch vault-swatch"></i>Shared memory</span><span><i class="legend-swatch surface-swatch"></i>Operating surfaces</span></div>
       </div>
     </section>
 
-    <section class="signal-strip"><span>THE MODEL</span><p>AI accelerates the work. People set the <i>direction.</i></p><span>IRIRI LABS</span></section>
+    <section id="installed" class="installed page-section band-section">
+      <div class="section-number">03</div>
+      <div class="section-heading"><p class="kicker">WHAT GETS INSTALLED</p><h2>Practices that turn<br>good intent into <em>daily motion.</em></h2></div>
+      <div class="surface-tabs" role="tablist" aria-label="Installed system details">
+        <button role="tab" aria-selected="true" aria-controls="panel-signal" id="tab-signal" class="surface-tab active" data-panel="signal"><span>01</span>Signal Desk</button>
+        <button role="tab" aria-selected="false" aria-controls="panel-creative" id="tab-creative" class="surface-tab" data-panel="creative"><span>02</span>Creative Pipeline</button>
+        <button role="tab" aria-selected="false" aria-controls="panel-operations" id="tab-operations" class="surface-tab" data-panel="operations"><span>03</span>Agency Operations + Principles</button>
+      </div>
+      <div class="installed-panel" id="panel-signal" role="tabpanel" aria-labelledby="tab-signal"><div class="panel-title"><span>01 / SIGNAL DESK</span><h3>Research that becomes<br><em>useful motion.</em></h3></div><div class="panel-detail"><p>Build a research-to-CRM practice that captures source-backed context and drafts relevant outreach. AI assists with finding, sorting, and composing. A human owner decides fit, consent, and next action.</p><dl><div><dt>Inputs</dt><dd>Accounts, questions, public signal</dd></div><div><dt>Reusable output</dt><dd>Qualified context and approved next steps</dd></div></dl></div></div>
+      <div class="installed-panel hidden" id="panel-creative" role="tabpanel" aria-labelledby="tab-creative"><div class="panel-title"><span>02 / CREATIVE PIPELINE</span><h3>Creative work with<br><em>a clear handoff.</em></h3></div><div class="panel-detail"><p>Install a practice for imagery, video, graphic systems, storyboards, and assembly. AI assists with exploration and production. Human art direction sets the bar and approves what ships.</p><dl><div><dt>Inputs</dt><dd>Brief, references, brand constraints</dd></div><div><dt>Reusable output</dt><dd>Reviewed directions, assets, and learnings</dd></div></dl></div></div>
+      <div class="installed-panel hidden" id="panel-operations" role="tabpanel" aria-labelledby="tab-operations"><div class="panel-title"><span>03 / AGENCY OPERATIONS + PRINCIPLES</span><h3>Standards that stay<br><em>close to decisions.</em></h3></div><div class="panel-detail"><p>Make responsible use legible in the work. AI assists with documenting and checking practice. People own the rules, exceptions, client separation, privacy, IP, and quality gates.</p><dl><div><dt>Inputs</dt><dd>Principles, policies, approvals</dd></div><div><dt>Reusable output</dt><dd>Clear standards and accountable handoffs</dd></div></dl></div></div>
+    </section>
 
-    <section id="systems" class="systems section-grid"><div class="section-intro"><p class="eyebrow">01 / THE SURFACES</p><h2>Three surfaces.<br><em>One memory.</em></h2><p>The agency does not need a simplistic AI production loop. It needs connected places to work, with shared context and human judgment across every handoff.</p><div class="tab-hint">SELECT A SURFACE <span>↓</span></div></div><div class="system-panel"><div class="system-tabs" role="tablist" aria-label="Agency operating surfaces"><button class="system-tab active" role="tab" aria-selected="true" data-system="sales"><span>01</span>Signal desk</button><button class="system-tab" role="tab" aria-selected="false" data-system="vault"><span>CORE</span>Knowledge vault</button><button class="system-tab" role="tab" aria-selected="false" data-system="creative"><span>02</span>Creative pipeline</button><button class="system-tab" role="tab" aria-selected="false" data-system="operations"><span>03</span>Operations + principles</button></div>
-        <article class="system-detail" data-detail="sales"><div class="detail-top"><span class="tag">SURFACE 01 / SALES + PROSPECTING</span><span class="detail-index">S01</span></div><h3>Turn internet signal<br>into <em>useful motion.</em></h3><p>A research-to-CRM practice that helps the team find relevant accounts, capture source-backed context, and draft outreach that sounds like the agency. The vault makes good research reusable. A human owner decides what moves.</p><div class="workflow" aria-label="Signal desk workflow"><button class="workflow-step active"><b>01</b><span>Research</span><small>Find signal</small></button><button class="workflow-step"><b>02</b><span>Qualify</span><small>Capture context</small></button><button class="workflow-step"><b>03</b><span>Compose</span><small>Draft with care</small></button><button class="workflow-step"><b>04</b><span>Route</span><small>Human approval</small></button></div><div class="step-note">Start with a question worth researching. Capture source, date, and relevance.</div></article>
-        <article class="system-detail hidden" data-detail="vault"><div class="detail-top"><span class="tag">CORE / KNOWLEDGE VAULT</span><span class="detail-index">CORE</span></div><h3>Shared memory is<br>the <em>coordination layer.</em></h3><p>Not a document dump and not a pipeline stage. The vault holds the briefs, decisions, principles, source material, and learnings that let people and tools pick up work without losing the why.</p><div class="vault-diagram"><div><span>CONTRIBUTE</span><strong>Briefs<br>Decisions<br>Learnings</strong></div><i>↔</i><div class="vault-core"><span>THE VAULT</span><strong>Findable<br>owned<br>separated</strong></div><i>↔</i><div><span>RETRIEVE</span><strong>Context<br>Next action<br>Handoff</strong></div></div></article>
-        <article class="system-detail hidden" data-detail="creative"><div class="detail-top"><span class="tag">SURFACE 02 / CREATIVE PIPELINE</span><span class="detail-index">S02</span></div><h3>Make creative AI<br><em>repeatable.</em></h3><p>Install a practice for imagery, video, graphic systems, storyboards, and assembly. The vault carries the brief and decisions. Human art direction and approval remain the quality system.</p><div class="creative-rail"><span>BRIEF</span><b>→</b><span>EXPLORE</span><b>→</b><span>DIRECT</span><b>→</b><span>ASSEMBLE</span><b>→</b><span>REVIEW</span></div></article>
-        <article class="system-detail hidden" data-detail="operations"><div class="detail-top"><span class="tag">SURFACE 03 / AGENCY OPERATIONS + PRINCIPLES</span><span class="detail-index">S03</span></div><h3>Turn principles into<br><em>daily practice.</em></h3><p>Make responsible use legible in the work: ownership, client separation, consent, privacy, IP, brand safety, tool choice, and clear approval gates. The vault keeps standards close to the decisions they govern.</p><div class="principles"><span>OWNERSHIP</span><span>CLIENT SEPARATION</span><span>RESPONSIBLE USE</span><span>QUALITY GATES</span></div></article>
-      </div></section>
+    <section id="measurement" class="measurement page-section">
+      <div class="section-intro"><div class="section-number">04</div><div><p class="kicker">MEASUREMENT DESIGN</p><h2>Measure the change<br><em>before claiming it.</em></h2><p>This is a baseline-to-target design, not a promised result. Choose a small set of frictions the agency recognizes, then agree what better coordination looks like.</p></div></div>
+      <div class="scorecard" aria-label="Baseline to target measurement design">
+        <div class="scorecard-head"><span>BASELINE → TARGET</span><span>DISCOVERY WORKSHEET</span></div>
+        <div class="metric-list" role="tablist" aria-label="Measurement metrics"><button class="metric active" role="tab" aria-selected="true" data-metric="draft">Hours to first draft</button><button class="metric" role="tab" aria-selected="false" data-metric="research">Lead research time</button><button class="metric" role="tab" aria-selected="false" data-metric="handoff">On-time handoffs</button><button class="metric" role="tab" aria-selected="false" data-metric="retrieval">Knowledge retrieval time</button></div>
+        <div class="metric-readout"><div><span class="kicker">SELECTED KPI</span><h3 id="metric-name">Hours to first draft</h3><p id="metric-copy">From brief received to a credible first creative direction.</p></div><div class="metric-fields"><label>Current baseline<input id="baseline" type="text" placeholder="Add after discovery"></label><label>Target direction<input id="target" type="text" placeholder="Agree with team"></label></div></div>
+        <div class="scorecard-foot"><span id="metric-status">Not yet baselined</span><button class="button button-small" id="save-baseline" type="button">Mark as discussion point</button></div>
+      </div>
+    </section>
 
-    <section class="foundations section-grid"><div class="section-intro"><p class="eyebrow">02 / THE FOUNDATIONS</p><h2>Capability before<br><em>complexity.</em></h2><p>Shared language makes AI easier to adopt and safer to improve. The operating model is built around the agency's existing standards, not around a tool.</p></div><div class="foundation-board"><div class="foundation-row"><span>01</span><strong>AI literacy</strong><p>What models can do, where they fail, and how to work with uncertainty.</p></div><div class="foundation-row"><span>02</span><strong>Prompting + context</strong><p>Clear intent, useful source material, and outputs that can be inspected.</p></div><div class="foundation-row"><span>03</span><strong>Responsible use</strong><p>Consent, privacy, IP, client separation, brand safety, and review.</p></div><div class="foundation-row"><span>04</span><strong>Tool choice + habits</strong><p>Choose tools for the work, then turn good individual practice into team practice.</p></div><div class="guardrail-box"><span>GUARDRAIL CHECK</span><strong>No spam. No data mixing.<br>No unreviewed output.</strong><small>Every surface has a clear owner and an approval gate.</small></div></div></section>
+    <section id="path" class="path page-section band-section">
+      <div class="section-number">05</div><div class="section-heading"><p class="kicker">THE ENGAGEMENT PATH</p><h2>Sequence the work.<br><em>Earn the next step.</em></h2></div>
+      <ol class="path-list"><li><span>01</span><div><strong>Diagnose</strong><p>Map where context, quality, and ownership currently break down.</p></div></li><li><span>02</span><div><strong>Set foundations</strong><p>Align language, principles, tool choices, and review habits.</p></div></li><li><span>03</span><div><strong>Install systems</strong><p>Build the vault and the first operating surfaces around real work.</p></div></li><li><span>04</span><div><strong>Pilot and hand off</strong><p>Test with a willing owner, document the practice, and make it teachable.</p></div></li><li><span>05</span><div><strong>Measure</strong><p>Return to the baseline, inspect the change, and decide what to extend.</p></div></li></ol>
+    </section>
 
-    <section id="scorecard" class="scorecard section-grid"><div class="section-intro"><p class="eyebrow">03 / THE SCORECARD</p><h2>Measure the<br><em>change, honestly.</em></h2><p>No promised results before a baseline. Start with the friction the agency recognizes, then agree what better coordination looks like.</p></div><div class="worksheet"><div class="worksheet-head"><span>BASELINE WORKSHEET</span><span>EDITABLE VIEW</span></div><div class="metric-picker"><button class="metric active" data-metric="draft">Hours to first draft</button><button class="metric" data-metric="research">Lead research time</button><button class="metric" data-metric="handoff">On-time handoffs</button><button class="metric" data-metric="retrieval">Knowledge retrieval time</button></div><div class="metric-readout"><div><small>SELECTED KPI</small><h3 id="metric-name">Hours to first draft</h3><p id="metric-copy">From brief received to a credible first creative direction.</p></div><div class="fields"><label>Current baseline<input id="baseline" type="text" placeholder="Add after discovery"></label><label>Target direction<input id="target" type="text" placeholder="Agree with team"></label></div></div><div class="worksheet-foot"><span id="metric-status">Not yet baselined</span><button id="save-baseline" class="button button-small">Mark as a discussion point</button></div></div></section>
-
-    <section id="meeting" class="meeting"><div class="meeting-inner"><p class="eyebrow">04 / USE THIS IN THE MEETING</p><div class="meeting-layout"><h2>Start with the<br>work, not the <em>tool.</em></h2><div><p>Bring this up as a working model, not a finished prescription. The useful next conversation is where context is lost, where quality is non-negotiable, and which team is ready to pilot with a willing owner.</p><a class="button button-lime" href="#scorecard">Shape the baseline <span>↗</span></a></div></div><div class="prompts"><span>ASK THE ROOM</span><button>Where is context lost today? <b>↗</b></button><button>Which surface has a willing owner? <b>↗</b></button><button>What must stay human? <b>↗</b></button></div></div></section>
+    <section id="close" class="close page-section"><div class="close-mark" aria-hidden="true">IRIRI<br><span>LABS</span></div><p class="kicker">06 / NEXT CONVERSATION</p><h2>Start with the work,<br>not the <em>tool.</em></h2><p class="close-copy">Bring this model into the room as a working proposal. The next conversation should make the first useful pilot visible.</p><div class="questions"><div><span>ASK 01</span><strong>Where is context lost today?</strong></div><div><span>ASK 02</span><strong>Which surface has a willing owner?</strong></div><div><span>ASK 03</span><strong>What must stay human?</strong></div></div><a class="button button-primary" href="#measurement">Shape the baseline <span aria-hidden="true">↗</span></a></section>
   </main>
-  <footer><div class="footer-brand"><img src="assets/iriri-labs-logo.svg" alt="IRIRI Labs"><span>IRIRI Labs, an expression of Ingenious Resources International Limited.</span></div><span>FEMI / AI TRANSFORMATION LEAD</span><a href="#top">Back to top ↑</a></footer>
+  <footer><div><img src="assets/iriri-labs-logo.svg" alt="IRIRI Labs"><p>IRIRI Labs, an expression of Ingenious Resources International Limited.</p></div><span>FEMI / AI TRANSFORMATION LEAD</span><a href="#top">Back to top ↑</a></footer>
   <script src="script.js"></script>
 </body>
 </html>

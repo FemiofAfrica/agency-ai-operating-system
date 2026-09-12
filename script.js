@@ -1,69 +1,75 @@
-const themeToggle = document.querySelector('.theme-toggle');
-const prefersLight = window.matchMedia('(prefers-color-scheme: light)');
-let savedTheme = null;
-try { savedTheme = window.localStorage.getItem('agency-theme'); } catch (error) { savedTheme = null; }
-const initialTheme = savedTheme || (prefersLight.matches ? 'light' : 'dark');
-document.documentElement.dataset.theme = initialTheme;
+(() => {
+  const root = document.documentElement;
+  const themeToggle = document.querySelector('.theme-toggle');
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.site-nav');
+  const prefersLight = window.matchMedia('(prefers-color-scheme: light)');
 
-function updateThemeButton(theme) {
-  const light = theme === 'light';
-  themeToggle.setAttribute('aria-pressed', String(light));
-  themeToggle.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode');
-  themeToggle.querySelector('.theme-label').textContent = light ? 'Dark' : 'Light';
-  themeToggle.querySelector('.theme-icon').textContent = light ? '◐' : '☼';
-}
-updateThemeButton(initialTheme);
-themeToggle.addEventListener('click', () => {
-  const nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-  document.documentElement.dataset.theme = nextTheme;
-  try { window.localStorage.setItem('agency-theme', nextTheme); } catch (error) { /* Storage is optional. */ }
-  updateThemeButton(nextTheme);
-});
+  let savedTheme = null;
+  try { savedTheme = window.localStorage.getItem('agency-theme'); } catch (error) { savedTheme = null; }
+  const initialTheme = savedTheme || (prefersLight.matches ? 'light' : 'dark');
+  root.dataset.theme = initialTheme;
 
-const menuToggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.topnav');
-menuToggle.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', String(open));
-  menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-});
-document.querySelectorAll('.topnav a').forEach(link => link.addEventListener('click', () => nav.classList.remove('open')));
+  function updateThemeButton(theme) {
+    const light = theme === 'light';
+    themeToggle.setAttribute('aria-pressed', String(light));
+    themeToggle.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode');
+    themeToggle.lastElementChild.textContent = light ? 'Dark' : 'Light';
+  }
 
-document.querySelectorAll('.system-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.system-tab').forEach(item => { item.classList.remove('active'); item.setAttribute('aria-selected', 'false'); });
-    document.querySelectorAll('.system-detail').forEach(detail => detail.classList.add('hidden'));
-    tab.classList.add('active');
-    tab.setAttribute('aria-selected', 'true');
-    document.querySelector(`[data-detail="${tab.dataset.system}"]`).classList.remove('hidden');
+  updateThemeButton(initialTheme);
+  themeToggle.addEventListener('click', () => {
+    const nextTheme = root.dataset.theme === 'light' ? 'dark' : 'light';
+    root.dataset.theme = nextTheme;
+    try { window.localStorage.setItem('agency-theme', nextTheme); } catch (error) { /* Storage is optional. */ }
+    updateThemeButton(nextTheme);
   });
-});
 
-const stepNotes = {
-  Research: 'Start with a question worth researching. Capture source, date, and relevance.',
-  Qualify: 'Separate useful context from assumptions. Keep the record legible for the next person.',
-  Compose: 'Use the context to draft. The goal is relevance, not volume or spam.',
-  Route: 'A human owner checks fit, consent, brand, and next action before anything moves.'
-};
-document.querySelectorAll('.workflow-step').forEach(step => {
-  step.addEventListener('click', () => {
-    step.parentElement.querySelectorAll('.workflow-step').forEach(item => item.classList.remove('active'));
-    step.classList.add('active');
-    step.closest('.system-detail').querySelector('.step-note').textContent = stepNotes[step.querySelector('span').textContent];
+  menuToggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.textContent = open ? 'Close' : 'Menu';
   });
-});
-document.querySelectorAll('.metric').forEach(metric => {
-  metric.addEventListener('click', () => {
-    const metrics = { draft: ['Hours to first draft', 'From brief received to a credible first creative direction.'], research: ['Lead research time', 'Time from account list to useful, source-backed context.'], handoff: ['On-time handoffs', 'Whether the next owner receives the right context at the right time.'], retrieval: ['Knowledge retrieval time', 'Time for a team member to find the context needed to act.'] };
-    document.querySelectorAll('.metric').forEach(item => item.classList.remove('active'));
-    metric.classList.add('active');
-    document.querySelector('#metric-name').textContent = metrics[metric.dataset.metric][0];
-    document.querySelector('#metric-copy').textContent = metrics[metric.dataset.metric][1];
-    document.querySelector('#metric-status').textContent = 'Not yet baselined';
+  nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.textContent = 'Menu';
+  }));
+
+  const panels = document.querySelectorAll('.installed-panel');
+  document.querySelectorAll('.surface-tab').forEach((tab) => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.surface-tab').forEach((item) => {
+        item.classList.toggle('active', item === tab);
+        item.setAttribute('aria-selected', String(item === tab));
+      });
+      panels.forEach((panel) => panel.classList.toggle('hidden', panel.id !== `panel-${tab.dataset.panel}`));
+    });
   });
-});
-document.querySelector('#save-baseline').addEventListener('click', event => {
-  const hasInput = document.querySelector('#baseline').value.trim() || document.querySelector('#target').value.trim();
-  document.querySelector('#metric-status').textContent = hasInput ? 'Ready for discovery review' : 'Add a baseline or target first';
-  event.currentTarget.textContent = hasInput ? 'Discussion point saved' : 'Mark as a discussion point';
-});
+
+  const metrics = {
+    draft: ['Hours to first draft', 'From brief received to a credible first creative direction.'],
+    research: ['Lead research time', 'Time from account list to useful, source-backed context.'],
+    handoff: ['On-time handoffs', 'Whether the next owner receives the right context at the right time.'],
+    retrieval: ['Knowledge retrieval time', 'Time for a team member to find the context needed to act.']
+  };
+  document.querySelectorAll('.metric').forEach((metric) => {
+    metric.addEventListener('click', () => {
+      document.querySelectorAll('.metric').forEach((item) => {
+        item.classList.toggle('active', item === metric);
+        item.setAttribute('aria-selected', String(item === metric));
+      });
+      document.querySelector('#metric-name').textContent = metrics[metric.dataset.metric][0];
+      document.querySelector('#metric-copy').textContent = metrics[metric.dataset.metric][1];
+      document.querySelector('#metric-status').textContent = 'Not yet baselined';
+      document.querySelector('#save-baseline').textContent = 'Mark as discussion point';
+    });
+  });
+
+  document.querySelector('#save-baseline').addEventListener('click', (event) => {
+    const baseline = document.querySelector('#baseline').value.trim();
+    const target = document.querySelector('#target').value.trim();
+    document.querySelector('#metric-status').textContent = baseline || target ? 'Ready for discovery review' : 'Add a baseline or target first';
+    event.currentTarget.textContent = baseline || target ? 'Discussion point saved' : 'Mark as discussion point';
+  });
+})();
